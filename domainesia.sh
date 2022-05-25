@@ -9,4 +9,6 @@ systemctl restart sshd.service
 firewall-cmd --permanent --zone=public --add-port=2323/tcp
 firewall-cmd --reload
 yum install php  php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
-php -v
+yum install wget -y
+wget https://getcomposer.org/installer -O composer-installer.php
+sudo php composer-installer.php --filename=composer --install-dir=/usr/bin
