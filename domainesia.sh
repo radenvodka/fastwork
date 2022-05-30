@@ -2,13 +2,16 @@
 # 1 GB RAM - 1 CPU Core
 # 20 GB Storage
 # PHP 7.4 & CHANGE PORT 22 TO 2323
-
 yum install nano firewalld
 nano /etc/ssh/sshd_config
 systemctl restart sshd.service
+systemctl enable firewalld
+systemctl start firewalld
 firewall-cmd --permanent --zone=public --add-port=2323/tcp
 firewall-cmd --reload
+# Install composer
 yum install php  php-cli php-fpm php-mysqlnd php-zip php-devel php-gd php-mcrypt php-mbstring php-curl php-xml php-pear php-bcmath php-json
 yum install wget -y
 wget https://getcomposer.org/installer -O composer-installer.php
-sudo php composer-installer.php --filename=composer --install-dir=/usr/bin
+php composer-installer.php --filename=composer --install-dir=/usr/bin
+composer -V
