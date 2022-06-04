@@ -3,7 +3,7 @@
 # 20 GB Storage
 # PHP 7.4 & CHANGE PORT 22 TO 2323
 
-yum install nano firewalld
+yum -y install nano firewalld
 
 # SSH CONFIG OPEN PORT 2323
 nano /etc/ssh/sshd_config
